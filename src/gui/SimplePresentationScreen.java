@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import entities.Student;
 import javax.swing.JTabbedPane;
 import java.awt.Toolkit;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
@@ -112,10 +113,9 @@ public class SimplePresentationScreen extends JFrame {
 		
 		DateTimeFormatter formateador = DateTimeFormatter.ofPattern("HH:mm:ss"); // El formato es HH:mm:ss
 		String horaActual = formateador.format(LocalDateTime.now());
-		Calendar c = Calendar.getInstance();
-		String dia = Integer.toString(c.get(Calendar.DATE));
-		String mes = Integer.toString(c.get(Calendar.MONTH));
-		String anio = Integer.toString(c.get(Calendar.YEAR));
+		String dia = String.valueOf(LocalDate.now().getDayOfMonth());
+		String mes = String.valueOf(LocalDate.now().getMonthValue());
+		String anio = Integer.toString(LocalDate.now().getYear());
 		
 		
 		JLabel lblLU = new JLabel("LU");
